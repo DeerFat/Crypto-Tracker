@@ -12,3 +12,24 @@ header {
     text-align: center;
     padding: 15px;
 }
+
+main {
+    max-width: min(100% - 100px, 1080px);
+    margin: 25px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.price-container {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    margin: 20px;
+}
+
+.price-box {
+    font-size: 22px;
+    color: #000000;
+}
