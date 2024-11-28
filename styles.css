@@ -33,3 +33,20 @@ main {
     font-size: 22px;
     color: #000000;
 }
+
+#price, #change {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+#price {
+    color: #000000;
+}
+
+#change {
+    font-size: 18px;
+}
+
+#timer {
+    color: #ff9f00;
+}
