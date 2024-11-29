@@ -50,3 +50,23 @@ main {
 #timer {
     color: #ff9f00;
 }
+
+#refresh-button {
+    background-color: #ff9f00;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+#refresh-button:hover {
+    background-color: #e88d00;
+}
+
+#refresh-button:active {
+    background-color: #d77a00;
+}

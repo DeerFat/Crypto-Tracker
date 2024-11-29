@@ -29,3 +29,20 @@ const apiUrl = `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_cur
 fetchBitcoinData();
 
 setInterval(fetchBitcoinData, 600000);
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Handle the refresh button click event
+    document.getElementById('refresh-button').addEventListener('click', async () => {
+        // Show "Loading..." before fetching data
+        document.getElementById('price-usd').textContent = 'Loading USD...';
+        document.getElementById('price-cad').textContent = 'Loading CAD...';
+        document.getElementById('change').textContent = 'Loading...';
+        document.getElementById('last-updated').textContent = 'Loading...';
+
+        // Wait 500ms to show "Loading..." before fetching the new data
+        await new Promise(resolve => setTimeout(resolve, 150));
+
+        // Call the fetchBitcoinData function from the other script
+        fetchBitcoinData();
+    });
+});
