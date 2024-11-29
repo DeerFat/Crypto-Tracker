@@ -34,6 +34,13 @@ main {
     color: #000000;
 }
 
+@media (max-width: 840px) {
+    .price-container {
+        display: block;
+        gap: 0px;
+    }
+}
+
 /* BITCOIN */
 /* BITCOIN */
 /* BITCOIN */
