@@ -31,18 +31,23 @@ fetchBitcoinData();
 setInterval(fetchBitcoinData, 600000);
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Handle the refresh button click event
-    document.getElementById('refresh-button').addEventListener('click', async () => {
-        // Show "Loading..." before fetching data
+    document.getElementById('refresh-button').addEventListener('click', async (event) => {
+        const button = event.target;
+        
+        button.disabled = true;
+        button.textContent = 'Wait 15 Seconds';
+
         document.getElementById('price-usd').textContent = 'Loading USD...';
         document.getElementById('price-cad').textContent = 'Loading CAD...';
         document.getElementById('change').textContent = 'Loading...';
-        document.getElementById('last-updated').textContent = 'Loading...';
 
-        // Wait 500ms to show "Loading..." before fetching the new data
-        await new Promise(resolve => setTimeout(resolve, 150));
+        await new Promise(resolve => setTimeout(resolve, 500));
 
-        // Call the fetchBitcoinData function from the other script
         fetchBitcoinData();
+
+        setTimeout(() => {
+            button.disabled = false;
+            button.textContent = 'Refresh Now';
+        }, 15000);
     });
 });
