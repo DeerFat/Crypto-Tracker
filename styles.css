@@ -13,7 +13,7 @@ header {
     padding: 15px;
 }
 
-main {
+section {
     max-width: min(100% - 100px, 1080px);
     margin: 25px auto;
     padding: 25px;
@@ -180,4 +180,48 @@ main {
     background-color: #d3d3d3;
     color: #a1a1a1;
     cursor: not-allowed;
+}
+
+/* SEARCH */
+/* SEARCH */
+/* SEARCH */
+
+.search-section {
+    margin-bottom: 20px;
+}
+
+#coin-input {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#search-button {
+    padding: 10px;
+    margin-left: 10px;
+    background: #ff9f00;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#search-button:hover {
+    background: #e68a00;
+}
+
+#coin-details {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.coin-image {
+    max-width: 150px;
+    display: block;
+    margin: 20px auto;
+}
+
+.hidden {
+    display: none;
 }

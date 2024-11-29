@@ -11,9 +11,25 @@
 <header>
     <h1>CRYPTO TRACKER</h1>
 </header>
-<main>
+<section>
+    <div class="search-section">
+        <h2>Crypto Search</h2>
+        <p>Be specific, sometimes doesn't work.</p>
+        <input type="text" id="coin-input" placeholder="Enter coin name or symbol (e.g., bitcoin, eth)">
+        <button id="search-button">Search</button>
+    </div>
+    <div id="coin-details" class="hidden">
+        <h2 id="coin-name" style="text-align: center;">Loading...</h2>
+        <p id="coin-symbol" style="text-align: center;">Loading...</p>
+        <p id="coin-price-usd" style="text-align: center;">Loading...</p>
+        <p id="coin-price-cad" style="text-align: center;">Loading...</p>
+        <p id="coin-change" style="text-align: center;">Loading...</p>
+        <img id="coin-image" src="temp" alt="Coin Image" class="coin-image" style="text-align: center;">
+    </div>
+</section>
+<section>
     <h2>BITCOIN PRICE</h2>
-    <img id="btc-coin-image" src="" alt="Bitcoin Image" width="50px" height="50px">
+    <img id="btc-coin-image" src="temp" alt="Bitcoin Image" width="50">
     <div class="price-container">
         <div id="btcprice-usd" class="price-box">Loading USD...</div>
         <div id="btcprice-cad" class="price-box">Loading CAD...</div>
@@ -23,10 +39,10 @@
     <div id="btclast-updated">Last updated: Never</div>
     <div id="btctimer">Prices Automatically Refresh every 10 minutes</div>
     <button id="btcrefresh-button">Refresh Now</button>
-</main>
-<main>
+</section>
+<section>
     <h2>ETHEREUM PRICE</h2>
-    <img id="eth-coin-image" src="" alt="Ethereum Image" width="50px" height="50px">
+    <img id="eth-coin-image" src="temp" alt="Ethereum Image" width="50">
     <div class="price-container">
         <div id="ethprice-usd" class="price-box">Loading USD...</div>
         <div id="ethprice-cad" class="price-box">Loading CAD...</div>
@@ -36,10 +52,10 @@
     <div id="ethlast-updated">Last updated: Never</div>
     <div id="ethtimer">Prices Automatically Refresh every 10 minutes</div>
     <button id="ethrefresh-button">Refresh Now</button>
-</main>
-<main>
+</section>
+<section>
     <h2>DOGECOIN PRICE</h2>
-    <img id="dg-coin-image" src="" alt="Bitcoin Image" width="50px" height="50px">
+    <img id="dg-coin-image" src="temp" alt="Bitcoin Image" width="50">
     <div class="price-container">
         <div id="dgprice-usd" class="price-box">Loading USD...</div>
         <div id="dgprice-cad" class="price-box">Loading CAD...</div>
@@ -49,6 +65,6 @@
     <div id="dglast-updated">Last updated: Never</div>
     <div id="dgtimer">Prices Automatically Refresh every 10 minutes</div>
     <button id="dgrefresh-button">Refresh Now</button>
-</main>
+</section>
 </body>
 </html>

@@ -1,4 +1,8 @@
 const apiUrl = `https://api.coingecko.com/api/v3/simple/price?ids=ethereum,bitcoin,dogecoin&vs_currencies=usd,cad&include_24hr_change=true`;
+const coinInfoUrl = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin,ethereum,dogecoin`;
+
+const searchApiUrl = `https://api.coingecko.com/api/v3/search?query=`;
+const detailsApiUrl = `https://api.coingecko.com/api/v3/coins/`;
 
 // bitcoin 
 // bitcoin 
@@ -178,16 +182,12 @@ document.addEventListener('DOMContentLoaded', () => {
 // IMAGES 
 // IMAGES 
 
-
-const coinInfoUrl = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin,ethereum,dogecoin`;
-
 async function fetchCoinImages() {
     try {
         const response = await fetch(coinInfoUrl);
         if (!response.ok) throw new Error('Failed to Retrieve Coin Image Data');
         const coinInfoData = await response.json();
 
-        // Set images for both Bitcoin and Ethereum
         document.getElementById('btc-coin-image').src = coinInfoData[0].image;
         document.getElementById('eth-coin-image').src = coinInfoData[1].image;
         document.getElementById('dg-coin-image').src = coinInfoData[2].image;
@@ -197,3 +197,47 @@ async function fetchCoinImages() {
 }
 
 fetchCoinImages();
+
+// SEARCH
+// SEARCH
+// SEARCH
+
+async function fetchCoinDetails(coinNameOrSymbol) {
+    try {
+        const searchResponse = await fetch(`${searchApiUrl}${coinNameOrSymbol}`);
+        if (!searchResponse.ok) throw new Error('Failed to Search for Coin');
+        const searchData = await searchResponse.json();
+
+        if (searchData.coins.length === 0) {
+            alert('Coin not found. Please try again.');
+            return;
+        }
+
+        const coinId = searchData.coins[0].id;
+
+        const detailsResponse = await fetch(`${detailsApiUrl}${coinId}`);
+        if (!detailsResponse.ok) throw new Error('Failed to Retrieve Coin Details');
+        const coinDetails = await detailsResponse.json();
+        const schange = coinDetails.market_data.price_change_percentage_24h?.toFixed(2) || 'N/A';
+
+        document.getElementById('coin-name').textContent = coinDetails.name;
+        document.getElementById('coin-symbol').textContent = `Symbol: ${coinDetails.symbol.toUpperCase()}`;
+        document.getElementById('coin-price-usd').textContent = `Current Price: $${coinDetails.market_data.current_price.usd} USD`;
+        document.getElementById('coin-price-cad').textContent = `Current Price: $${coinDetails.market_data.current_price.cad} CAD`;
+        document.getElementById('coin-change').textContent = `24h Change: ${schange}%`;
+        document.getElementById('coin-change').style.color = schange >= 0 ? 'green' : 'red';
+        document.getElementById('coin-image').src = coinDetails.image.large;
+        document.getElementById('coin-details').classList.remove('hidden');
+    } catch (error) {
+        alert('Too Many API Requests/Failed to Retrieve Data');
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('search-button').addEventListener('click', () => {
+        const coinInput = document.getElementById('coin-input').value.trim();
+        if (coinInput !== '') {
+            fetchCoinDetails(coinInput);
+        }
+    });
+});
