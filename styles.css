@@ -34,24 +34,28 @@ main {
     color: #000000;
 }
 
-#price, #change {
+/* BITCOIN */
+/* BITCOIN */
+/* BITCOIN */
+
+#btcprice, #btcchange {
     font-size: 24px;
     margin-top: 20px;
 }
 
-#price {
+#btcprice {
     color: #000000;
 }
 
-#change {
+#btcchange {
     font-size: 18px;
 }
 
-#timer {
+#btctimer {
     color: #ff9f00;
 }
 
-#refresh-button {
+#btcrefresh-button {
     background-color: #ff9f00;
     color: white;
     border: none;
@@ -63,15 +67,62 @@ main {
     transition: background-color 0.3s ease;
 }
 
-#refresh-button:hover {
+#btcrefresh-button:hover {
     background-color: #e88d00;
 }
 
-#refresh-button:active {
+#btcrefresh-button:active {
     background-color: #d77a00;
 }
 
-#refresh-button:disabled {
+#btcrefresh-button:disabled {
+    background-color: #d3d3d3;
+    color: #a1a1a1;
+    cursor: not-allowed;
+}
+
+/* ETHEREUM */
+/* ETHEREUM */
+/* ETHEREUM */
+
+#ethprice, #ethchange {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+#ethprice {
+    color: #000000;
+}
+
+#ethchange {
+    font-size: 18px;
+}
+
+#ethtimer {
+    color: #ff9f00;
+}
+
+#ethrefresh-button {
+    background-color: #ff9f00;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+#ethrefresh-button:hover {
+    background-color: #e88d00;
+}
+
+#ethrefresh-button:active {
+    background-color: #d77a00;
+}
+
+#ethrefresh-button:disabled {
     background-color: #d3d3d3;
     color: #a1a1a1;
     cursor: not-allowed;
